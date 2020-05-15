@@ -64,15 +64,11 @@ int main() {
     FrontLeft.spin(fwd, yo - Controller.Axis1.position(), velocityUnits::pct);
     BackRight.spin(fwd, yo + Controller.Axis1.position(), velocityUnits::pct);
 
-    FrontRight.spin(fwd, xo + Controller.Axis1.position(), velocityUnits::pct);
-    BackLeft.spin(fwd, xo - Controller.Axis1.position(), velocityUnits::pct);
+    FrontRight.spin(fwd, xo - Controller.Axis1.position(), velocityUnits::pct);
+    BackLeft.spin(fwd, xo + Controller.Axis1.position(), velocityUnits::pct);
     //
 
     //debug temps
-    Brain.Screen.clearLine(1,color::black);
-    Brain.Screen.clearLine(2,color::black);
-    Brain.Screen.clearLine(3,color::black);
-    Brain.Screen.clearLine(4,color::black);
     Brain.Screen.clearScreen(color::black);
     Brain.Screen.setCursor(1,0);
     Brain.Screen.print("FrontLeft: %f degrees",FrontLeft.temperature(temperatureUnits::celsius));
