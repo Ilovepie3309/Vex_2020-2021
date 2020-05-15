@@ -11,10 +11,10 @@
 // Robot Configuration:
 // [Name]               [Type]        [Port(s)]
 // cont                 controller    N/A             
-// leftFront            motor         1               
-// leftRear             motor         2               
-// rightFront           motor         3               
-// rightRear            motor         4               
+// FrontLeft            motor         1               
+// BackLeft             motor         2               
+// FrontRight           motor         3               
+// BackRight            motor         4               
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
@@ -42,13 +42,13 @@ int main() {
   {
 
     //get joystick values
-    xi = Controller.Axis4.position();
-    yi = Controller.Axis3.position();
+    yi = Controller.Axis4.position();
+    xi = Controller.Axis3.position();
     //
 
     //xdrive conversions
     cy1 = yi; cy2 = yi;
-    cx1 = -xi; cx2 = xi;
+    cx1 = xi; cx2 = -xi;
     //
 
     //drive outputs
@@ -67,6 +67,24 @@ int main() {
     FrontRight.spin(fwd, xo + Controller.Axis1.position(), velocityUnits::pct);
     BackLeft.spin(fwd, xo - Controller.Axis1.position(), velocityUnits::pct);
     //
+
+    //debug temps
+    Brain.Screen.clearLine(1,color::black);
+    Brain.Screen.clearLine(2,color::black);
+    Brain.Screen.clearLine(3,color::black);
+    Brain.Screen.clearLine(4,color::black);
+    Brain.Screen.clearScreen(color::black);
+    Brain.Screen.setCursor(1,0);
+    Brain.Screen.print("FrontLeft: %f degrees",FrontLeft.temperature(temperatureUnits::celsius));
+    Brain.Screen.setCursor(2,0);
+    Brain.Screen.print("BackLeft: %f degrees",BackLeft.temperature(temperatureUnits::celsius));
+    Brain.Screen.setCursor(3,0);
+    Brain.Screen.print("FrontRight: %f degrees",FrontRight.temperature(temperatureUnits::celsius));
+    Brain.Screen.setCursor(4,0);
+    Brain.Screen.print("BackRight: %f degrees",BackRight.temperature(temperatureUnits::celsius));
+    //
+
+    task::sleep(100);
 
   }
 
