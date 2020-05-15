@@ -38,6 +38,9 @@ int main() {
   //multipliers
   float spin;
 
+  //diagmulti/smoothing
+  float smooth;
+
   while (true)
   {
 
@@ -58,6 +61,16 @@ int main() {
 
     //spin multiplier
     spin = (100 - abs(Controller.Axis1.position()));
+    //
+
+    //smoothing multiplier
+    smooth = fabs(fabs(yi) - fabs(xi)) + 100;
+
+    xo = (xo * smooth)/100;
+    yo = (yo * smooth)/100;
+
+    xo /= 2;
+    yo /= 2;
     //
 
     //apply drive motor control
