@@ -61,11 +61,11 @@ int main() {
     //
 
     //apply drive motor control
-    FrontLeft.spin(fwd, yo - Controller.Axis1.position(), velocityUnits::pct);
-    BackRight.spin(fwd, yo + Controller.Axis1.position(), velocityUnits::pct);
+    FrontLeft.spin(fwd, yo + Controller.Axis1.position(), velocityUnits::pct);
+    BackRight.spin(fwd, yo - Controller.Axis1.position(), velocityUnits::pct);
 
-    FrontRight.spin(fwd, xo - Controller.Axis1.position(), velocityUnits::pct);
-    BackLeft.spin(fwd, xo + Controller.Axis1.position(), velocityUnits::pct);
+    FrontRight.spin(fwd, xo + Controller.Axis1.position(), velocityUnits::pct);
+    BackLeft.spin(fwd, xo - Controller.Axis1.position(), velocityUnits::pct);
     //
 
     //debug temps
