@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------*/
 /*                                                                            */
 /*    Module:       main.cpp                                                  */
-/*    Author:       C:\Users\BumAndTheSniff                                   */
+/*    Author:       Liam Schultz                                              */
 /*    Created:      Thu May 14 2020                                           */
 /*    Description:  V5 project                                                */
 /*                                                                            */
