@@ -29,9 +29,6 @@ int main() {
   //xinput yinput
   float xi; float yi;
 
-  //converted x/y
-  float cx1; float cx2; float cy1; float cy2;
-
   //xoutput youtput
   float xo; float yo;
 
@@ -52,14 +49,9 @@ int main() {
     xi = Controller.Axis3.position();
     //
 
-    //xdrive conversions
-    cy1 = yi; cy2 = yi;
-    cx1 = xi; cx2 = -xi;
-    //
-
-    //drive outputs
-    yo = (cy1 + cx1) / 2;
-    xo = (cy2 + cx2) / 2;
+    //converted drive values
+    yo = (yi + xi) / 2;
+    xo = (yi - xi) / 2;
     //
 
     //spin multiplier
