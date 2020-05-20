@@ -88,15 +88,15 @@ int main() {
     if(Controller.ButtonL1.pressing())
     {
 
-      IntakeLeft.spin(fwd, intakeSpeed, velocityUnits::pct);
-      IntakeRight.spin(fwd, intakeSpeed, velocityUnits::pct);
-
-    }
-    else if(Controller.ButtonL1.pressing())
-    {
-
       IntakeLeft.spin(fwd, -intakeSpeed, velocityUnits::pct);
       IntakeRight.spin(fwd, -intakeSpeed, velocityUnits::pct);
+
+    }
+    else if(Controller.ButtonL2.pressing())
+    {
+
+      IntakeLeft.spin(fwd, intakeSpeed, velocityUnits::pct);
+      IntakeRight.spin(fwd, intakeSpeed, velocityUnits::pct);
 
     }
     //
