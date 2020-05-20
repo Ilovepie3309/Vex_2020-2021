@@ -41,6 +41,9 @@ int main() {
   //diagmulti/smoothing
   float smooth;
 
+  //speed vals
+  float intakeSpeed = 100;
+
   while (true)
   {
 
@@ -69,7 +72,7 @@ int main() {
     xo = (xo * smooth)/100;
     yo = (yo * smooth)/100;
 
-    xo /= 2;
+    xo /= 2;//simplify
     yo /= 2;
     //
 
@@ -79,6 +82,23 @@ int main() {
 
     FrontRight.spin(fwd, xo + Controller.Axis1.position(), velocityUnits::pct);
     BackLeft.spin(fwd, xo - Controller.Axis1.position(), velocityUnits::pct);
+    //
+
+    //intake control
+    if(Controller.ButtonL1.pressing())
+    {
+
+      IntakeLeft.spin(fwd, intakeSpeed, velocityUnits::pct);
+      IntakeRight.spin(fwd, intakeSpeed, velocityUnits::pct);
+
+    }
+    else if(Controller.ButtonL1.pressing())
+    {
+
+      IntakeLeft.spin(fwd, -intakeSpeed, velocityUnits::pct);
+      IntakeRight.spin(fwd, -intakeSpeed, velocityUnits::pct);
+
+    }
     //
 
     //debug temps
