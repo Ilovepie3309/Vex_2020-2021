@@ -93,6 +93,23 @@ int main() {
     }
     //
 
+    //lift control
+    if(Controller.ButtonL1.pressing())
+    {
+
+      LiftLeft.spin(fwd, intakeSpeed, velocityUnits::pct);
+      LiftRight.spin(fwd, intakeSpeed, velocityUnits::pct);
+
+    }
+    else if(Controller.ButtonL2.pressing())
+    {
+
+      LiftLeft.spin(fwd, -intakeSpeed, velocityUnits::pct);
+      LiftRight.spin(fwd, -intakeSpeed, velocityUnits::pct);
+
+    }
+    //
+
     //debug temps
     Brain.Screen.clearScreen(color::black);
     Brain.Screen.setCursor(1,0);
