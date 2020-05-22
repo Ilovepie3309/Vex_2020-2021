@@ -20,6 +20,7 @@
 #include "vex.h"
 
 using namespace vex;
+using namespace std;
 
 int main() {
 
@@ -41,12 +42,34 @@ int main() {
   //speed vals
   float intakeSpeed = 100;
 
+  //speedmode
+  string speedMode = "Drive";
+
   while (true)
   {
 
     //get joystick values
     yi = Controller.Axis4.position();
     xi = Controller.Axis3.position();
+    //
+
+    //get button presses
+    if(Controller.ButtonA.pressing())
+    {
+
+      speedMode = "Drive";
+      Controller.rumble(".");
+      task::sleep(100); //avoids double press
+
+    }
+    if(Controller.ButtonA.pressing() == true) 
+    {
+
+      speedMode = "Turbo";
+      Controller.rumble("..");
+      task::sleep(100); //avoids double press
+      
+    }
     //
 
     //converted drive values
@@ -64,8 +87,14 @@ int main() {
     xo = (xo * smooth)/100;
     yo = (yo * smooth)/100;
 
-    xo /= 2;//simplify
-    yo /= 2;
+    //speedmode multipliers
+    if(speedMode == "Drive")
+    {
+
+      xo /= 2;
+      yo /= 2;
+
+    }
     //
 
     //apply drive motor control
