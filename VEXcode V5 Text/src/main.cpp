@@ -54,7 +54,7 @@ int main() {
     //
 
     //get button presses
-    if(Controller.ButtonA.pressing())
+    if(Controller.ButtonX.pressing())
     {
 
       speedMode = "Drive";
